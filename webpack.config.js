@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/reactA06.jsx",
+  entry: "./frontend/root.jsx",
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
@@ -19,7 +19,8 @@ module.exports = {
       loader: 'babel-loader',
       query: {
         presets: ['es2015', 'react']
-      }
+      },
+
     },
     {
       test: /\.node$/,

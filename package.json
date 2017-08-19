@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.15.0",
-    "react": "^15.0.0",
+    "react": "^15.6.1",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "react-router-dom": "^4.1.1",
@@ -26,6 +26,7 @@
     "babel-core": "^6.2.0",
     "babel-jest": "^15.0.0",
     "babel-loader": "^6.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
@@ -42,5 +43,10 @@
       "js",
       "jsx"
     ]
+  },
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
   }
 }
