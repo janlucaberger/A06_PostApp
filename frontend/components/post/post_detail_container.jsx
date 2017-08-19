@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import PostDetail from './post_detail'
-import { fetchPost } from  '../ations/post_actions'
+import { fetchPost } from  '../../actions/post_actions'
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  const postId = ownProps.match.params.postId;
   return {
-    // post: state.posts[ownProps.location.match]
+    postId: postId,
+    post: state.posts[postId]
   }
 }
 
