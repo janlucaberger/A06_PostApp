@@ -12,8 +12,8 @@ const postsReducer = (state = {}, action) => {
       return _.merge({}, state, { [action.post.id]: action.post } )
 
     case RECEIVE_ALL_POSTS:
-      for(post in action.posts){
-        newState[action.posts[post].id] = action.posts[post]
+      for(let key in action.posts){
+        newState[action.posts[key].id] = action.posts[key]
       }
 
       return _.merge({}, state, newState)
