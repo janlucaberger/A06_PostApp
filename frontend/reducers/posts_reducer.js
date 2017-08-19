@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { RECEIVE_POST, REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_ALL_POSTS } from '../actions/posts_actions';
 
-export const posts = (state = {}, action) => {
+const postsReducer = (state = {}, action) => {
   let newState = {};
   Object.freeze(state);
 
@@ -16,9 +16,11 @@ export const posts = (state = {}, action) => {
         newState[action.posts[post].id] = action.posts[post]
       }
 
-
+      return _.merge({}, state, newState)
     case REMOVE_POST:
     default:
-
+      return state;
   }
 }
+
+export default postsReducer;
