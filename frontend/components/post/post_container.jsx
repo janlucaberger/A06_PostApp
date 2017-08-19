@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import PostDetail from './post_detail'
 import { fetchPost } from  '../../actions/post_actions'
+import { withRouter } from 'react-router-dom'
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   const postId = ownProps.match.params.postId;
   return {
     postId: postId,
@@ -17,4 +19,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostDetail)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostDetail))

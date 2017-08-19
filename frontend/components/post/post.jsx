@@ -22,4 +22,4 @@ class PostDetail extends React.Component {
   }
 
 }
-export default PostDetail
+export default Post
