@@ -15,9 +15,14 @@ const postsReducer = (state = {}, action) => {
       for(let key in action.posts){
         newState[action.posts[key].id] = action.posts[key]
       }
-
       return _.merge({}, state, newState)
     case REMOVE_POST:
+      for(let post in state){
+        if(state[post].id !== action.post.id){
+          newState[state[post].id] = state[post]
+        }
+      }
+      return newState;
     default:
       return state;
   }
