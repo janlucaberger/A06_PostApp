@@ -3,7 +3,8 @@
   "version": "2.1.0",
   "description": "App Academy's Assessment 06",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "webpack --watch"
   },
   "keywords": [
     "react",
@@ -16,9 +17,11 @@
     "lodash": "^4.15.0",
     "react": "^15.6.1",
     "react-dom": "^15.0.0",
+    "react-quill": "^1.0.0",
     "react-redux": "^4.4.5",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
+    "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.2.1",
     "redux-thunk": "^2.1.0"
   },
