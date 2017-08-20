@@ -1,7 +1,7 @@
 import * as ApiUtil from '../util/api_util';
 
 export const RECEIVE_POST = "RECEIVE_POST";
-export const REMOVE_POST = "RECEIVE_POST";
+export const REMOVE_POST = "REMOVE_POST";
 
 export const receivePost = (post) => {
 	return {
@@ -27,12 +27,14 @@ export const fetchPost = (postId) => dispatch => {
 		.then((post) => dispatch(receivePost(post)))
 }
 
-export const upDatePost = (post) => dispatch => {
-	return ApiUtil.deletePost(post)
+export const updatePost = (post) => dispatch => {
+	return ApiUtil.updatePost(post)
 		.then((post) => dispatch(receivePost(post)))
 }
 
 export const deletePost = (postId) => dispatch => {
 	return ApiUtil.deletePost(postId)
-		.then((post) => dispatch(removePost(post)))
+		.then((post) => {
+			return dispatch(removePost(post))
+		})
 }
