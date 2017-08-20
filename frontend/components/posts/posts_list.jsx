@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PostDetail from '../post/post_detail';
+import Post from '../post/post';
+import PostCreate from '../post/post_create';
 import { fetchAllPosts } from '../../actions/posts_actions'
+import { showModal } from '../../actions/ui_actions'
 import { getAllPosts } from '../../reducers/selectors.js';
+import Modal from '../modal/modal';
 
 class PostsList extends React.Component {
 
@@ -11,15 +14,18 @@ class PostsList extends React.Component {
   }
 
   render(){
+
     const posts = this.props.posts.map((post) => {
       return(
-        <PostDetail key={post.id} post={post} />
+        <Post key={post.id} post={post} />
       )
     })
 
     return (
       <div>
+        <PostCreate />
         { posts }
+        <Modal component={this.props.modal_component} props={this.props.modal_props}/>
       </div>
     )
   }
@@ -27,14 +33,17 @@ class PostsList extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return{
-    posts: getAllPosts(state)
+  return {
+    posts: getAllPosts(state),
+    modal_component: state.ui.modal.component,
+    modal_props: state.ui.modal.props,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllPosts: () => dispatch(fetchAllPosts())
+    fetchAllPosts: () => dispatch(fetchAllPosts()),
+    showModal: () => dispatch(showModal())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PostsList)
