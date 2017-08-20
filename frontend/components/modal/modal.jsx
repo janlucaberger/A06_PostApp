@@ -29,18 +29,17 @@ class Modal extends React.Component{
 
   render(){
     if(this.props.display){
-      debugger
       const Component = this.props.component
       return(
         <div className="modal-container">
           <div onClick={this.hideModal} className="modal-hide-field" />
-          <div className="modal">Test
+          <div className="modal">
             <Component />
           </div>
         </div>
       )
     } else {
-      return <div>tes</div>
+      return <div></div>
     }
   }
 }
