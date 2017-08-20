@@ -5,7 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Post.create!(:title => "Post 1", :body => "Body 1")
-Post.create!(:title => "Post 2", :body => "Body 2")
-Post.create!(:title => "Post 3", :body => "Body 3")
-Post.create!(:title => "Post 4", :body => "Body 4")
+Post.destroy_all
+15.times do
+  body_title = "<h2>" + Faker::MostInterestingManInTheWorld.quote + "</h2>"
+  body_copy = "<p>" + Faker::HitchhikersGuideToTheGalaxy.quote + "</p>"
+  Post.create(title: Faker::Superhero.name, body: body_title + body_copy)
+end
